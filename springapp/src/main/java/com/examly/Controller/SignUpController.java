@@ -19,5 +19,8 @@ public class SignUpController {
         userService.addUser(userModel);
     }
 
-    
+    @RequestMapping("/getAll")
+    public List<UserModel> getAll(){
+        return userService.getAll();
+    }
 }

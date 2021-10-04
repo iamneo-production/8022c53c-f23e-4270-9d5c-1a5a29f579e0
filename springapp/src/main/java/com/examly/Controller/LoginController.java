@@ -1,4 +1,9 @@
+package com.examly.springapp;
+
+
 import java.util.List;
+
+import javax.security.auth.spi.LoginModule;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+//@RestController
 public class LoginController 
 {
-    @GetMapping("/userLogin")
-	public String login(@RequestBody RegisterModel registerModel)
+    /*@GetMapping("/login")
+	public String login(@RequestBody LoginModel registerModel)
 	{
 		
 	        List<RegisterModel> users = (List<RegisterModel>) registerDao.findAll();
@@ -26,5 +31,5 @@ public class LoginController
 	        }
 	        return "error.jsp";
 	    }
-    
+		*/  
 }

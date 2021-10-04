@@ -1,60 +1,48 @@
 package com.examly.springapp;
 
-import javax.annotation.processing.Generated;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Entity
 @Table(name="users")
 public class UserModel {
-    @Id
-    @GeneratedValue
-    private Long id;
+	
+	
 
-
+	@Id
 	@Column(columnDefinition = "varchar(255) not null unique")
 	private String email;
-	
+
 	@Column(columnDefinition = "varchar(255) not null")
 	private String password;
 	
 	@Column(columnDefinition = "varchar(255) not null")
-	private String usename;
+	private String username;
 	
 	@Column(columnDefinition = "varchar(10) not null")
-	private String mobileNumber;
+	private String mobilenumber;
 	
-	@Column(columnDefinition = "boolean defaulfalse")
+	@Column(columnDefinition = "boolean default false")
 	private Boolean active;
 	
 	@Column(columnDefinition = "varchar(255) not null")
 	private String role;
-	
+
 	public UserModel() {
 		
 	}
-
-	public UserModel(Long id, String email, String password, String usename, String mobileNumber, Boolean active,
-			String role) {
-		this.id = id;
+	
+	public UserModel(String email, String password, String username, String mobilenumber, Boolean active, String role) {
 		this.email = email;
 		this.password = password;
-		this.usename = usename;
-		this.mobileNumber = mobileNumber;
+		this.username = username;
+		this.mobilenumber = mobilenumber;
 		this.active = active;
 		this.role = role;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getEmail() {
@@ -73,20 +61,20 @@ public class UserModel {
 		this.password = password;
 	}
 
-	public String getUsename() {
-		return usename;
+	public String getUserName() {
+		return username;
 	}
 
-	public void setUsename(String usename) {
-		this.usename = usename;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 
 	public String getMobileNumber() {
-		return mobileNumber;
+		return mobilenumber;
 	}
 
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
+	public void setMobileNumber(String mobilenumber) {
+		this.mobilenumber = mobilenumber;
 	}
 
 	public Boolean getActive() {
@@ -104,4 +92,6 @@ public class UserModel {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+	
 }
