@@ -28,7 +28,7 @@ public class UserModel {
 	@Column(columnDefinition = "varchar(10) not null")
 	private String mobileNumber;
 	
-	@Column(columnDefinition = "boolean defaulfalse")
+	@Column(columnDefinition = "boolean default false")
 	private Boolean active;
 	
 	@Column(columnDefinition = "varchar(255) not null")
