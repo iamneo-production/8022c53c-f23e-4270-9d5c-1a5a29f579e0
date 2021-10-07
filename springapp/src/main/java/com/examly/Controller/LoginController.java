@@ -1,6 +1,5 @@
 package com.examly.springapp;
 
-
 import java.util.List;
 
 import javax.security.auth.spi.LoginModule;
@@ -21,15 +20,15 @@ public class LoginController
 	public String login(@RequestBody LoginModel registerModel)
 	{
 		
-	        List<RegisterModel> users = (List<RegisterModel>) registerDao.findAll();
+	    List<RegisterModel> users = (List<RegisterModel>) registerDao.findAll();
 	        for (RegisterModel other : users) {
 	            if (other.equals(registerModel)) {
-	                registerModel.setLoggedIn(true);
-	                registerDao.save(registerModel);
-	                return "welcome.jsp";
-	            }
+	            	registerModel.setLoggedIn(true);
+	            	registerDao.save(registerModel);
+	            	return "welcome.jsp";
 	        }
-	        return "error.jsp";
 	    }
-		*/  
+	    return "error.jsp";
+	}
+	*/  
 }
