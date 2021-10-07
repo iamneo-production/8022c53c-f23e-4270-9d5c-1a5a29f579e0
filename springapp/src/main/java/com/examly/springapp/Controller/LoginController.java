@@ -13,9 +13,9 @@ public class LoginController
         private UserService userService;
 
     @GetMapping("/userLogin")
-	public void login(@RequestBody UserModel userModel)
+	public void login(@RequestBody LoginModel loginModel)
 	{
-		userService.loginUser(userModel);     
+		userService.loginUser(loginModel);     
 	}
     
 }
