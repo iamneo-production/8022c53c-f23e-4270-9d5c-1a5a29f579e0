@@ -6,44 +6,43 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
+import java.sql.Date;
+import java.util.*;
+import java.nio.charset.*;
 
 
 @Entity
 @Table(name="booking")
 public class BookingModel {
-    @Id
-    @GeneratedValue
-
-
-	@Column(columnDefinition = "varchar(255) not null unique")
+    
+	@Id
+	@Column(name="bookingId" , columnDefinition = "varchar(255) not null unique")
 	private String bookingId;
 	
-	@Column(columnDefinition = "varchar(255) FOREIGN KEY REFERENCES user(email)")
+	@Column(name="clientDetail" , columnDefinition = "varchar(255) FOREIGN KEY REFERENCES users(email)")
 	private String clientDetail;
 	
-	@Column(columnDefinition = "varchar(255) FOREIGN KEY REFERENCES trainer(traineremail)")
+	@Column(name="TrainerDetail" , columnDefinition = "varchar(255) FOREIGN KEY REFERENCES trainer(traineremail)")
 	private String TrainerDetail;
 	
-	@Column(columnDefinition = "varchar(255) not null")
+	@Column(name="lawfirmname" , columnDefinition = "varchar(255) not null")
 	private String lawfirmname;
 
-    @Column(columnDefinition = "DATE not null")
+    @Column(name="date" , columnDefinition = "DATE not null")
 	private Date date;
 
-    @Column(columnDefinition = "varchar(255) not null")
-	private String amount;
+    @Column(name="amount" , columnDefinition = "int not null default 0")
+	private int amount;
 	
-	@Column(columnDefinition = "boolean defaulfalse")
+	@Column(name="bookingStatus" , columnDefinition = "boolean default false")
 	private Boolean bookingStatus;
-	
-	
-	
+
 	public BookingModel() {
 		
 	}
-
-	public BookingModel(String bookingId, String clientDetail, String TrainerDetail, String lawfirmname,Date date, String amount,Boolean bookingStatus) {
-		this.bookingId = bookingId;
+	public BookingModel(String bookingId , String clientDetail, String TrainerDetail, String lawfirmname, Date date,
+			int amount, Boolean bookingStatus) {
+		this.bookingId=bookingId;
 		this.clientDetail = clientDetail;
 		this.TrainerDetail = TrainerDetail;
 		this.lawfirmname = lawfirmname;
@@ -51,63 +50,56 @@ public class BookingModel {
 		this.amount = amount;
 		this.bookingStatus = bookingStatus;
 	}
-
-
-	public String getbookingId() {
+	public String getBookingId() {
 		return bookingId;
 	}
-
-	public void setbookingId(String bookingId) {
+	public void setBookingId(String bookingId) {
 		this.bookingId = bookingId;
 	}
-
-	public String getclientDetail() {
+	public String getClientDetail() {
 		return clientDetail;
 	}
-
-	public void setclientDetail(String clientDetail) {
+	public void setClientDetail(String clientDetail) {
 		this.clientDetail = clientDetail;
 	}
-
 	public String getTrainerDetail() {
 		return TrainerDetail;
 	}
-
-	public void setTrainerDetail(String TrainerDetail) {
-		this.TrainerDetail = TrainerDetail;
+	public void setTrainerDetail(String trainerDetail) {
+		TrainerDetail = trainerDetail;
 	}
-
-	public String getlawfirmname() {
+	public String getLawfirmname() {
 		return lawfirmname;
 	}
-
-	public void setlawfirmname(String lawfirmname) {
+	public void setLawfirmname(String lawfirmname) {
 		this.lawfirmname = lawfirmname;
 	}
-
-    public String getamount() {
-		return amount;
-	}
-
-	public void setamount(String amount) {
-		this.amount = amount;
-	}
-
-	public Boolean getbookingStatus() {
-		return bookingStatus;
-	}
-
-	public void setbookingStatus(Boolean bookingStatus) {
-		this.bookingStatus = bookingStatus;
-	}
-
-	public Date getdate() {
+	public Date getDate() {
 		return date;
 	}
-
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public Boolean getBookingStatus() {
+		return bookingStatus;
+	}
+	public void setBookingStatus(Boolean bookingStatus) {
+		this.bookingStatus = bookingStatus;
+	}
+
+	/*static String getAlphaNumericString(){
+  
+        byte[] array = new byte[256];
+        new Random().nextBytes(array);
+  
+        return new String(array, Charset.forName("UTF-8"));
+	}*/
 }
 
 

@@ -1,16 +1,16 @@
 package com.examly.springapp;
 
 
-import java.util.Collection;
+/*import java.util.Collection;
 import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-public class UserDetail implements UserDetails {
-	
-	private UserModel userModel;
+*/
+public class UserDetail  {
+	//implements UserDetails
+	/*private UserModel userModel;
 	
 	
 	public UserDetail(UserModel userModel) {
@@ -51,5 +51,5 @@ public class UserDetail implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-
+*/
 }

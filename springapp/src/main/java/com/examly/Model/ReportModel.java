@@ -6,32 +6,29 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-
+import java.sql.Date;
 
 @Entity
 @Table(name="report")
 public class ReportModel {
-    @Id
-    @GeneratedValue
-    //private Long id;
-
-
-	@Column(columnDefinition = "varchar(255) not null unique")
+    
+	@Id
+	@Column(name="reportId" , columnDefinition = "varchar(255) not null unique")
 	private String reportId;
 	
-	@Column(columnDefinition = "varchar(255) FOREIGN KEY REFERENCES appointment(appointmentId)")
+	@Column(name="appointmentdetail" , columnDefinition = "varchar(255) FOREIGN KEY REFERENCES appointment(appointmentId)")
 	private String appointmentdetail;
 
-    @Column(columnDefinition = "DATE not null")
+    @Column(name="Date" , columnDefinition = "DATE not null")
 	private Date date;
 
-    @Column(columnDefinition = "varchar(255) not null")
-	private String days;
+    @Column(name="Days" , columnDefinition = "int not null")
+	private int days;
 
-    @Column(columnDefinition = "varchar(255) not null")
+    @Column(name="reportdesc" , columnDefinition = "varchar(255) not null")
 	private String report;
 	
-	@Column(columnDefinition = "varchar(255) FOREIGN KEY REFERENCES user(email)")
+	@Column(name="issuedby" , columnDefinition = "varchar(255) FOREIGN KEY REFERENCES trainer(traineremail)")
 	private String issuedby;
 	
 	
@@ -40,7 +37,7 @@ public class ReportModel {
 		
 	}
 
-	public ReportModel(String reportId, String appointmentdetail,Date date,String days,String report ,String issuedby) {
+	public ReportModel(String reportId, String appointmentdetail,Date date,int days,String report ,String issuedby) {
 		this.reportId = reportId;
 		this.appointmentdetail = appointmentdetail;
 		this.date = date;
@@ -82,11 +79,11 @@ public class ReportModel {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-    public String getDays() {
+    public int getDays() {
 		return days;
 	}
 
-	public void setDays(String days) {
+	public void setDays(int days) {
 		this.days = days;
 	}
     public String getReport() {

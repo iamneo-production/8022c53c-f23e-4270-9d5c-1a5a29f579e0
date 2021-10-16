@@ -11,21 +11,20 @@ import javax.persistence.GeneratedValue;
 @Entity
 @Table(name="trainer")
 public class TrainerModel {
-    @Id
-   // @GeneratedValue
-
+   
 
     @Column(columnDefinition = "varchar(255) not null")
     private String trainername;
 
+	@Id
     @Column(columnDefinition = "varchar(255) not null unique")
     private String traineremail;
 
-    @Column(columnDefinition = "int not null")
+    @Column(columnDefinition = "int default 0")
 	private int trainerexp;
 
     @Column(columnDefinition = "varchar(255) not null")
-   private String shopname;
+    private String shopname;
 
     @Column(columnDefinition = "varchar(255) not null")
     private String password;
@@ -42,7 +41,7 @@ public class TrainerModel {
 		this.password = password;
 	}
 
-	public Long getTrainerName() {
+	public String getTrainerName() {
 		return trainername;
 	}
 

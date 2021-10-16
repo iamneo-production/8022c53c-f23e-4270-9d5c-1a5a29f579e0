@@ -6,25 +6,23 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-
+import java.sql.Date;
 
 @Entity
 @Table(name="appointment")
 public class AppointmentModel {
-    @Id
-    @GeneratedValue
-
-
-	@Column(columnDefinition = "varchar(255) not null unique")
+    
+	@Id
+	@Column(name="appointmentId" , columnDefinition = "varchar(255) not null unique")
 	private String appointmentId;
 	
-	@Column(columnDefinition = "varchar(255) FOREIGN KEY REFERENCES user(email)")
+	@Column(name="userId" , columnDefinition = "varchar(255) FOREIGN KEY REFERENCES users(email)")
 	private String userId;
 
-    @Column(columnDefinition = "DATE not null")
+    @Column(name ="date" , columnDefinition = "DATE not null")
 	private Date date;
 	
-	@Column(columnDefinition = "varchar(255) FOREIGN KEY REFERENCES user(email)")
+	@Column(name="issusedBy" , columnDefinition = "varchar(255) FOREIGN KEY REFERENCES trainer(traineremail)")
 	private String issuedby;
 	
 	
