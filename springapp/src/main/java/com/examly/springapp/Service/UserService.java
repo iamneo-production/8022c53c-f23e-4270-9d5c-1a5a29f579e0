@@ -35,15 +35,14 @@ public class UserService  {
         userRepository.findAll().forEach(l::add);
         return l;
     }
-    public void checkUser(LoginModel loginModel){
+    public boolean checkUser(LoginModel loginModel){
         List<UserModel> users = (List<UserModel>) userRepository.findAll();
-	        for (UserModel um : users) {
-	            if ( (um.getEmail()).equals(loginModel.getEmail()) & (um.getPassword()).equals(loginModel.getPassword()) )              
-	                return;  
-				else
-					return;
+	        for (UserModel userModel : users) {
+	            if ( (userModel.getEmail()).equals(loginModel.getEmail()) & (userModel.getPassword()).equals(loginModel.getPassword()) )              
+	                return true;
+					return false;
 	        }
-	        return;
+	        return false;
     }
 }
 
