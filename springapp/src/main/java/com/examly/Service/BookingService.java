@@ -13,6 +13,8 @@ public class BookingService {
     
     @Autowired
     private BookingRepository bookingRepository;
+    @Autowired
+    private BookingModel bookingModel;
 
     public void addBooking(BookingModel bookingModel){
         bookingRepository.save(bookingModel);
