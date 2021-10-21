@@ -41,11 +41,6 @@ const Menu =({history,path})=>{
     <Link style={currentTab(history,"/signup")} className="nav-link" to="/signup">Signup</Link>
     
     </li>
-    
-
-
-
-
     </Fragment>
 )}
 
